@@ -1,0 +1,10 @@
+name: scan the jar file
+
+on: [pull_request]
+
+jobs: 
+  run-shell-command:
+    run-on:
+    Steps:
+      - name: test echo command
+        run: echo "this is the test"
