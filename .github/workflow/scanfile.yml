@@ -1,6 +1,6 @@
 name: scan the jar file
 
-on: [pull_request]
+on: [push]
 
 jobs: 
   run-shell-command:
