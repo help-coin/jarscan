@@ -8,3 +8,5 @@ jobs:
     steps:
       - name: test echo command
         run: echo "this is the test"
+      - name: Checkout repository
+        uses: actions/checkout@v3
