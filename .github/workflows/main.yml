@@ -8,6 +8,10 @@ jobs:
     steps:
       - name: test echo command
         run: echo "this is the test"
+      - name: create artifact directory
+        run: mkdir -p /artifact
+      - name: create file
+      - run: echo hello > /artifact/world.txt
       - uses: actions/upload-artifact@v3
         with:
           name: my-artifact
