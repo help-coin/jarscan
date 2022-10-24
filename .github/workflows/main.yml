@@ -9,9 +9,9 @@ jobs:
       - name: test echo command
         run: echo "this is the test"
       - name: create artifact directory
-        run: mkdir -p /artifact
+        run: mkdir -p path/to/artifact
       - name: create file
-        run: echo hello > /artifact/world.txt
+        run: echo hello > path/to/artifact/world.txt
       - uses: actions/upload-artifact@v3
         with:
           name: my-artifact
