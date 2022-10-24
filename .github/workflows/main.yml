@@ -8,5 +8,7 @@ jobs:
     steps:
       - name: test echo command
         run: echo "this is the test"
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: path/to/artifact/world.txt
