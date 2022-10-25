@@ -13,3 +13,17 @@ jobs:
         with:
           name: artifact
           path: /home/runner/work/jarscan/jarscan/*
+      - name: veracode scan
+        uses: veracode/veracode-uploadandscan-action@0.2.1
+        with:
+          appname: 'VeraDemo'
+          createprofile: false
+          filepath: '/home/runner/work/jarscan/jarscan//'
+          vid: '${{ secrets.API_ID }}'
+          vkey: '${{ secrets.API_KEY }}'
+#          createsandbox: 'true'
+#          sandboxname: 'SANDBOXNAME'
+#          scantimeout: 0
+#          exclude: '*.js'
+#          include: '*.war'
+#          criticality: 'VeryHigh'
