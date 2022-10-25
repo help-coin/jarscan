@@ -18,7 +18,7 @@ jobs:
         with:
           appname: 'VeraDemo'
           createprofile: false
-          filepath: '/home/runner/work/jarscan/jarscan//'
+          filepath: '**/**.jar'
           vid: '${{ secrets.API_ID }}'
           vkey: '${{ secrets.API_KEY }}'
 #          createsandbox: 'true'
