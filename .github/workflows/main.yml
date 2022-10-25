@@ -6,13 +6,10 @@ jobs:
   run-shell-command:
     runs-on: ubuntu-latest
     steps:
-      - name: test echo command
-        run: echo "this is the test"
-      - name: create artifact directory
-        run: mkdir -p path/to/artifact
-      - name: create file
-        run: echo hello > path/to/artifact/world.txt
-      - uses: actions/upload-artifact@v3
+      - name: Checkout the Repository
+        uses: actions/checkout@v2
+      - name: Uploading the artifact
+        uses: actions/upload-artifact@v3
         with:
-          name: my-artifact
-          path: path/to/artifact/world.txt
+          name: artifact
+          path: path/to/artifact/test.jar
