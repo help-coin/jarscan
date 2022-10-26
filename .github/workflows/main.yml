@@ -12,7 +12,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: artifact
-          path: $GITHUB_WORKSPACE
+          path: $env:GITHUB_WORKSPACE
       - name: veracode scan
         uses: veracode/veracode-uploadandscan-action@0.2.1
         with:
