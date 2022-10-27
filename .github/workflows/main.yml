@@ -11,7 +11,7 @@ jobs:
       - name: Uploading the artifact
         uses: actions/upload-artifact@v3
         with:
-          name: artifact
+          name: artifacts
           path: |
             **/*-${{ github.run_id}}.jar
       # - name: veracode scan
@@ -37,7 +37,7 @@ jobs:
       - name: Downloading the artifact
         uses: actions/download-artifact@v3
         with:
-          name: artifact
+          name: artifacts
       - run: |
           pwd
           curl -uhelpcoin@outlook.com:Hotmail@123 -T ./${m}-${{ github.run_id}}.jar "https://helpcoin.jfrog.io/artifactory/example-repo-local/${m}-${{ github.run_id}}.jar"
