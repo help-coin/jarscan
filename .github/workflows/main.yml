@@ -34,4 +34,4 @@ jobs:
       - name: publish on artifactory
         uses: actions/checkout@v2
       - run: |
-          curl -uhelpcoin@outlook.com:Hotmail@123 -T ./${m}-${{ github.run_id}}.jar "https://helpcoin.jfrog.io/artifactory/example-repo-local/${m}-${{ github.run_id}}.jar"
+          curl -uhelpcoin@outlook.com:Hotmail@123 -T ./${{ github.run_id}}.jar "https://helpcoin.jfrog.io/artifactory/example-repo-local/${{ github.run_id}}.jar"
