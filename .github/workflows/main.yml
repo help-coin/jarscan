@@ -9,7 +9,9 @@ jobs:
       - name: Checkout the Repository
         uses: actions/checkout@v2
       - name: Uploading the artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
+      - run:
+          cp -apf *.jar ${m}-${{ github.run_id}}.jar
         with:
           name: artifacts
           path: |
@@ -33,7 +35,7 @@ jobs:
     needs: run-shell-command
     steps:
       - name: Downloading the artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v2
         with:
           name: artifacts
       - run: |
