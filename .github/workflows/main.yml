@@ -39,6 +39,4 @@ jobs:
         with:
           name: artifacts
       - run: |
-          pwd
           curl -uhelpcoin@outlook.com:Hotmail@123 -T ./${{ github.run_id}}.jar "https://helpcoin.jfrog.io/artifactory/example-repo-local/${{ github.run_id}}.jar"
-          done
