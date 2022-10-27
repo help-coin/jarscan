@@ -12,18 +12,24 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: artifact
-          path: '${{ GITHUB_WORKSPACE }}'
-      - name: veracode scan
-        uses: veracode/veracode-uploadandscan-action@0.2.1
-        with:
-          appname: 'artifact'
-          createprofile: false
-          filepath: '**/**.jar'
-          vid: '${{ secrets.API_ID }}'
-          vkey: '${{ secrets.API_KEY }}'
+          path: /home/runner/work/jarscan/jarscan/*
+      # - name: veracode scan
+      #   uses: veracode/veracode-uploadandscan-action@0.2.1
+      #   with:
+      #     appname: 'artifact'
+      #     createprofile: false
+      #     filepath: '**/**.jar'
+      #     vid: '${{ secrets.API_ID }}'
+      #     vkey: '${{ secrets.API_KEY }}'
 #          createsandbox: 'true'
 #          sandboxname: 'SANDBOXNAME'
 #          scantimeout: 0
 #          exclude: '*.js'
 #          include: '*.war'
 #          criticality: 'VeryHigh'
+  publish-on-atrifactory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: publish on artifactory
+        run: |
+          curl -uhelpcoin@outlook.com:Hotmail@123 -T *.jar "https://helpcoin.jfrog.io/artifactory/example-repo-local/*.jar"
