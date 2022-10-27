@@ -9,7 +9,7 @@ jobs:
       - name: Checkout the Repository
         uses: actions/checkout@v2
       - run:
-          cp -apf **/*.jar ${{ github.run_id}}.jar
+          cp -apf ./*.jar ${{ github.run_id}}.jar
       - name: Uploading the artifact
         uses: actions/upload-artifact@v2      
         with:
