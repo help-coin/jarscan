@@ -31,5 +31,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: publish on artifactory
+        uses: actions/checkout@v2
         run: |
-          curl -uhelpcoin@outlook.com:Hotmail@123 -T *.jar "https://helpcoin.jfrog.io/artifactory/example-repo-local/*.jar"
+          curl -uhelpcoin@outlook.com:Hotmail@123 -T test.jar "https://helpcoin.jfrog.io/artifactory/example-repo-local/test.jar"
