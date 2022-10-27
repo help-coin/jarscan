@@ -33,10 +33,11 @@ jobs:
     steps:
       - name: publish on artifactory
         uses: actions/checkout@v2
+      - name: Downloadin the artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: artifact
       - run: |
           pwd
-          echo ${{ inputs.modules }}
-          for m in ${{ inputs.modules }}
-          do 
           curl -uhelpcoin@outlook.com:Hotmail@123 -T ./${m}-${{ github.run_id}}.jar "https://helpcoin.jfrog.io/artifactory/example-repo-local/${m}-${{ github.run_id}}.jar"
           done
