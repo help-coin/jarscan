@@ -30,7 +30,8 @@ jobs:
   publish-on-atrifactory:
     runs-on: ubuntu-latest
     steps:
-      - name: publish on artifactory
+      - name: checkout
         uses: actions/checkout@v2
+      - name: publish on artifactory
         run: |
           curl -uhelpcoin@outlook.com:Hotmail@123 -T test.jar "https://helpcoin.jfrog.io/artifactory/example-repo-local/test.jar"
