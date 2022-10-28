@@ -28,20 +28,6 @@ jobs:
           name: artifacts
           path: |
             **/${{ inputs.jar_name }}.jar
-      # - name: veracode scan
-      #   uses: veracode/veracode-uploadandscan-action@0.2.1
-      #   with:
-      #     appname: 'artifact'
-      #     createprofile: false
-      #     filepath: '**/**.jar'
-      #     vid: '${{ secrets.API_ID }}'
-      #     vkey: '${{ secrets.API_KEY }}'
-#          createsandbox: 'true'
-#          sandboxname: 'SANDBOXNAME'
-#          scantimeout: 0
-#          exclude: '*.js'
-#          include: '*.war'
-#          criticality: 'VeryHigh'
   publish-on-atrifactory:
     runs-on: ubuntu-latest
     needs: run-shell-command
@@ -56,11 +42,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clean jar file from Repository
-      - run:
+        run:
           rm -f \
           ${{ inputs:.jar_name }}.jar
       - name: Clean jar file from Repository
-      - run:
+        run:
           git config --global user.email "${{ inputs.git_credential }}"
           git config --global user.name "${{ inputs.git_username }}"
           git add .
