@@ -1,6 +1,20 @@
 name: scan the jar file
 
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      jar_name:
+        type: string
+        description: 'Enter name of the Jar:'
+        required: true
+      git_email:
+        type: string
+        description: 'Enter value of git.email:'
+        required: true
+      git_username:
+        type: string
+        description: 'Enter value of git.username:'
+        required: true
 
 jobs: 
   run-shell-command:
@@ -8,14 +22,12 @@ jobs:
     steps:
       - name: Checkout the Repository
         uses: actions/checkout@v2
-      - run:
-          cp -apf ./*.jar ${{ github.run_id}}.jar
       - name: Uploading the artifact
         uses: actions/upload-artifact@v2      
         with:
           name: artifacts
           path: |
-            **/${{ github.run_id}}.jar
+            **/${{ inputs.jar_name }}.jar
       # - name: veracode scan
       #   uses: veracode/veracode-uploadandscan-action@0.2.1
       #   with:
@@ -39,4 +51,18 @@ jobs:
         with:
           name: artifacts
       - run: |
-          curl -uhelpcoin@outlook.com:Hotmail@123 -T ./${{ github.run_id}}.jar "https://helpcoin.jfrog.io/artifactory/example-repo-local/${{ github.run_id}}.jar"
+          curl -uhelpcoin@outlook.com:Hotmail@123 -T ./${{ inputs:.jar_name }}.jar "https://helpcoin.jfrog.io/artifactory/example-repo-local/${{ inputs:.jar_name }}.jar"
+  remove-jar-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clean jar file from Repository
+      - run:
+          rm -f \
+          ${{ inputs:.jar_name }}.jar
+      - name: Clean jar file from Repository
+      - run:
+          git config --global user.email "${{ inputs.git_credential }}"
+          git config --global user.name "${{ inputs.git_username }}"
+          git add .
+          git commit -m "Clean Jar file from Repo"
+          git push  
