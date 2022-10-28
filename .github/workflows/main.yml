@@ -37,9 +37,10 @@ jobs:
         with:
           name: artifacts
       - run: |
-          curl -uhelpcoin@outlook.com:Hotmail@123 -T ./${{ inputs:.jar_name }}.jar "https://helpcoin.jfrog.io/artifactory/example-repo-local/${{ inputs:.jar_name }}.jar"
+          curl -uhelpcoin@outlook.com:Hotmail@123 -T ./${{ inputs.jar_name }}.jar "https://helpcoin.jfrog.io/artifactory/example-repo-local/${{ inputs.jar_name }}.jar"
   remove-jar-repo:
     runs-on: ubuntu-latest
+    needs: publish-on-atrifactory
     steps:
       - name: Clean jar file from Repository
         run:
