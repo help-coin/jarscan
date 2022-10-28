@@ -44,11 +44,10 @@ jobs:
     steps:
       - name: Clean jar file from Repository
         run:
-          rm -f \
-          ${{ inputs.jar_name }}.jar
+          rm -f ${{ inputs.jar_name }}.jar
       - name: Clean jar file from Repository
         run:
-          git config --global user.email "${{ inputs.git_credential }}"
+          git config --global user.email "${{ inputs.git_email }}"
           git config --global user.name "${{ inputs.git_username }}"
           git add .
           git commit -m "Clean Jar file from Repo"
