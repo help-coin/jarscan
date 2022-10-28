@@ -46,7 +46,7 @@ jobs:
         run:
           rm -f ${{ inputs.jar_name }}.jar
       - name: Clean jar file from Repository
-        run:
+        run: |
           git config --global user.email "${{ inputs.git_email }}"
           git config --global user.name "${{ inputs.git_username }}"
           git add .
